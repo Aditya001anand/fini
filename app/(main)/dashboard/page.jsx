@@ -42,6 +42,15 @@ export default function DashboardPage() {
   // A beautiful emerald/teal color palette for the chart
   const COLORS = ['#10b981', '#059669', '#34d399', '#047857', '#6ee7b7', '#064e3b', '#a7f3d0'];
 
+  // Formatter for Indian Rupees
+  const formatINR = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 2
+    }).format(amount);
+  };
+
   const clearData = () => {
     if (window.confirm("Are you sure you want to delete all transactions? This cannot be undone.")) {
       localStorage.removeItem('transactions');
@@ -118,7 +127,7 @@ export default function DashboardPage() {
               <CardTitle className="text-sm font-bold text-gray-500 uppercase tracking-wider">Total Balance</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-light text-gray-800">₹{balance.toFixed(2)}</p>
+              <p className="text-4xl font-light text-gray-800">{formatINR(balance)}</p>
             </CardContent>
           </Card>
           <Card className="bg-white/70 backdrop-blur-md border-white/60 shadow-xl shadow-green-900/5 rounded-3xl overflow-hidden relative">
@@ -127,7 +136,7 @@ export default function DashboardPage() {
               <CardTitle className="text-sm font-bold text-gray-500 uppercase tracking-wider">Total Income</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-light text-emerald-600">+₹{income.toFixed(2)}</p>
+              <p className="text-4xl font-light text-emerald-600">+{formatINR(income)}</p>
             </CardContent>
           </Card>
           <Card className="bg-white/70 backdrop-blur-md border-white/60 shadow-xl shadow-rose-900/5 rounded-3xl overflow-hidden relative">
@@ -136,7 +145,7 @@ export default function DashboardPage() {
               <CardTitle className="text-sm font-bold text-gray-500 uppercase tracking-wider">Total Expenses</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-4xl font-light text-rose-500">-₹{expense.toFixed(2)}</p>
+              <p className="text-4xl font-light text-rose-500">-{formatINR(expense)}</p>
             </CardContent>
           </Card>
         </div>
@@ -164,7 +173,7 @@ export default function DashboardPage() {
                       ))}
                     </Pie>
                     <Tooltip 
-                      formatter={(value) => `₹${value.toFixed(2)}`}
+                      formatter={(value) => formatINR(value)}
                       contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
                     />
                     <Legend verticalAlign="bottom" height={36} iconType="circle" />
@@ -204,7 +213,7 @@ export default function DashboardPage() {
                         </span>
                       </td>
                       <td className={`px-8 py-5 font-bold text-right text-lg ${t.type === 'income' ? 'text-emerald-500' : 'text-rose-500'}`}>
-                        {t.type === 'income' ? '+' : '-'}₹{t.amount.toFixed(2)}
+                        {t.type === 'income' ? '+' : '-'}{formatINR(t.amount)}
                       </td>
                     </tr>
                   ))}
