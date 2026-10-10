@@ -85,7 +85,7 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
           <div>
             <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-700 tracking-tight mb-2">Dashboard</h1>
-            <p className="text-gray-500 font-medium">Welcome back! Here's your financial overview.</p>
+            <p className="text-gray-500 font-medium">Welcome back! Here&apos;s your financial overview.</p>
           </div>
           
           <div className="mt-6 md:mt-0 flex gap-4">

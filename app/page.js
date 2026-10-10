@@ -56,7 +56,7 @@ const LandingPage = () => {
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-green-500"></div>
             <h3 className="text-sm font-bold tracking-widest text-emerald-600 uppercase mb-4">Advice of the Day</h3>
             <p className="text-3xl md:text-4xl font-light text-gray-700 leading-tight">
-              "{adviceOfTheDay}"
+              &quot;{adviceOfTheDay}&quot;
             </p>
           </motion.div>
         </div>
