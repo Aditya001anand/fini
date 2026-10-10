@@ -9,8 +9,15 @@ import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Fini",
-  description: "Your cute and simple finance tracker",
+  title: "Fini | Personal Finance Tracker",
+  description: "Fini is a beautifully designed, simple, and intuitive personal finance tracker. Manage your income and expenses securely on your device.",
+  keywords: "finance, tracker, budget, personal finance, fini, expenses",
+  authors: [{ name: "Aditya Anand" }],
+  openGraph: {
+    title: "Fini | Personal Finance Tracker",
+    description: "Your cute and simple finance tracker.",
+    type: "website",
+  }
 };
 
 export default function RootLayout({ children }) {
